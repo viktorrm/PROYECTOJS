@@ -5,6 +5,7 @@ var calculadora = {
     resultado: 0,
     previa: 0,
     operador: "",
+    aux: 0,
     denominarbnt: function () {
         document.getElementById("0").addEventListener("click", function () { calculadora.ingresaNumero("0"); });
         document.getElementById("1").addEventListener("click", function () { calculadora.ingresaNumero("1"); });
@@ -27,11 +28,22 @@ var calculadora = {
         document.getElementById("mas").addEventListener("click", function () { calculadora.ingresaoperador("+"); });
     },
     ingresaNumero: function (_tomaValor) {
-        if((parseFloat(this.resultado>=0) || this.pantalla.innerHTML=="" ) && this.operador=="-"){
-            this.pantalla.innerHTML="";
-           this.pantalla.innerHTML+="-"+(this.pantalla.innerHTML);
-           
+
+        if ((this.pantalla.innerHTML == "0" || this.pantalla.innerHTML == "") && this.operador == "-") {
+            this.pantalla.innerHTML += "-" + (this.pantalla.innerHTML);
+            aux = 1;
+            this.primervalor = parseFloat(this.pantalla.innerHTML); 
+        } else { this.pantalla.innerHTML+=this.pantalla.innerHTML};
+
+        if (this.aux = 1) {
+            this.segundovalor = parseFloat(this.pantalla.innerHTML);
+            aux = 0;
+        } else {
+            this.resultado = parseFloat(pantalla.innerHTML);
+            
         }
+        
+
         if (this.pantalla.innerHTML.length < 8) {
             if (_tomaValor == ".") {
                 this.pantalla.innerHTML += _tomaValor
