@@ -27,10 +27,10 @@ var calculadora = {
         document.getElementById("mas").addEventListener("click", function () { calculadora.ingresaoperador("+"); });
     },
     ingresaNumero: function (_tomaValor) {
-        if((this.pantalla.innerHTML=="0" || this.pantalla.innerHTML=="" ) && this.operador=="-"){
+        if((parseFloat(this.resultado>=0) || this.pantalla.innerHTML=="" ) && this.operador=="-"){
             this.pantalla.innerHTML="";
            this.pantalla.innerHTML+="-"+(this.pantalla.innerHTML);
-           this.resultado=parseFloat(this.pantalla.innerHTML);
+           
         }
         if (this.pantalla.innerHTML.length < 8) {
             if (_tomaValor == ".") {
