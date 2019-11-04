@@ -28,36 +28,18 @@ var calculadora = {
         document.getElementById("mas").addEventListener("click", function () { calculadora.ingresaoperador("+"); });
     },
     ingresaNumero: function (_tomaValor) {
-
-        if ((this.pantalla.innerHTML == "0" || this.pantalla.innerHTML == "") && this.operador == "-") {
-            this.pantalla.innerHTML += "-" + (this.pantalla.innerHTML);
-            aux = 1;
-            this.primervalor = parseFloat(this.pantalla.innerHTML); 
-        } else { this.pantalla.innerHTML+=this.pantalla.innerHTML};
-
-        if (this.aux = 1) {
-            this.segundovalor = parseFloat(this.pantalla.innerHTML);
-            aux = 0;
-        } else {
-            this.resultado = parseFloat(pantalla.innerHTML);
-            
-        }
-        
-
         if (this.pantalla.innerHTML.length < 8) {
-            if (_tomaValor == ".") {
-                this.pantalla.innerHTML += _tomaValor
-            } else {
-                if (this.pantalla.innerHTML == "0") {
-                    this.pantalla.innerHTML = "";
-                    this.pantalla.innerHTML += _tomaValor;
-                } else {
-                    this.pantalla.innerHTML += _tomaValor;
-                }
-            }
+            if (this.pantalla.innerHTML == "0") {
+                this.pantalla.innerHTML = "";
+                if (this.operador == "-") {
+                    this.pantalla.innerHTML = "" + _tomaValor;
+                    aux = 1;
+                } else { this.pantalla.innerHTML += _tomaValor; }
+            }else{this.pantalla.innerHTML+=_tomaValor;}
         }
-        _tomaValor = "";
     },
+
+
     limpiarPantalla: function () {
         this.pantalla.innerHTML = "";
     },
