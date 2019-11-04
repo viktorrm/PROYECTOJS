@@ -32,11 +32,12 @@ var calculadora = {
             if (this.pantalla.innerHTML == "0") {
                 this.pantalla.innerHTML = "";
                 if (this.operador == "-") {
-                    this.pantalla.innerHTML = "" + _tomaValor;
-                    aux = 1;
+                    _tomaValor = "-" + _tomaValor;
                 } else { this.pantalla.innerHTML += _tomaValor; }
             }else{this.pantalla.innerHTML+=_tomaValor;}
         }
+       
+     
     },
 
 
@@ -47,7 +48,7 @@ var calculadora = {
     ingresaoperador: function (_oper) {
         this.primervalor = parseFloat(this.pantalla.innerHTML);
         this.operador = _oper;
-        _oper = 0;
+        _oper = "";
         this.limpiarPantalla();
     },
 
